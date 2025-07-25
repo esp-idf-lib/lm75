@@ -1,5 +1,9 @@
 # esp-idf-lib/lm75
 
+[![Build examples](https://github.com/esp-idf-lib/lm75/actions/workflows//build.yml/badge.svg)](https://github.com/esp-idf-lib/lm75/actions/workflows//build.yml)
+[![Build docs](https://github.com/esp-idf-lib/lm75/actions/workflows//build-docs.yml/badge.svg)](https://github.com/esp-idf-lib/lm75/actions/workflows//build-docs.yml)
+[![Validation](https://github.com/esp-idf-lib/lm75/actions/workflows//validate-component.yml/badge.svg)](https://github.com/esp-idf-lib/lm75/actions/workflows//validate-component.yml)
+
 Driver for LM75, a digital temperature sensor and thermal watchdog.
 
 * [Documentation](https://esp-idf-lib.github.io/lm75/)
@@ -11,7 +15,7 @@ Driver for LM75, a digital temperature sensor and thermal watchdog.
 ## Installation
 
 ```sh
-idf.py add-dependency esp-idf-lib/lm75^1.0.0
+idf.py add-dependency esp-idf-lib/lm75
 ```
 
 ## Support
