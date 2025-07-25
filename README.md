@@ -11,7 +11,7 @@ Driver for LM75, a digital temperature sensor and thermal watchdog.
 ## Installation
 
 ```sh
-idf.py add-dependency "esp-idf-lib/lm75^1.0.0
+idf.py add-dependency esp-idf-lib/lm75^1.0.0
 ```
 
 ## Support
