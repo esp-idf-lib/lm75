@@ -1,5 +1,5 @@
 ---
-version: 1.0.3
+version: 1.0.4
 description: Driver for LM75, a digital temperature sensor and thermal watchdog
 license: ISC
 targets:
