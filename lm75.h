@@ -52,7 +52,8 @@ extern "C" {
 /**
  * Operation mode of LM75
  */
-typedef enum {
+typedef enum
+{
     LM75_MODE_NORMAL = 0,  //!< Normal operation mode
     LM75_MODE_SHUTDOWN = 1 //!< Shutdown mode
 } lm75_mode_t;
@@ -60,7 +61,8 @@ typedef enum {
 /**
  * Overtemperature Shutdown Polarity
  */
-typedef enum {
+typedef enum
+{
     LM75_OSP_LOW  = 0, //!< Overtemperature Shutdown Polarity is active low
     LM75_OSP_HIGH = 1  //!< OSP is active high
 } lm75_os_polarity_t;
@@ -68,7 +70,8 @@ typedef enum {
 /**
  * Overtemperature Shutdown output mode
  */
-typedef enum {
+typedef enum
+{
     LM75_OS_MODE_COMP = 0, //!< OS output mode is comparator
     LM75_OS_MODE_INT  = 1  //!< OS output mode is interrupt
 } lm75_os_mode_t;
@@ -77,7 +80,8 @@ typedef enum {
  *  OS fault queue, the number of faults that must occur consecutively to
  *  activate the OS output
  */
-typedef enum {
+typedef enum
+{
     LM75_FAULT_QUEUE1 = 0b00, //!< 1
     LM75_FAULT_QUEUE2 = 0b01, //!< 2
     LM75_FAULT_QUEUE4 = 0b10, //!< 4
@@ -87,7 +91,8 @@ typedef enum {
 /**
  * Device configuration
  */
-typedef struct {
+typedef struct
+{
     lm75_mode_t mode;                     //!< Operation mode of the device
     lm75_os_polarity_t os_pol;            //!< OS Polarity
     lm75_os_mode_t os_mode;               //!< OS mode

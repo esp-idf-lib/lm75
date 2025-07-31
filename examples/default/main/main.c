@@ -45,7 +45,8 @@ void lm75_task(void *pvParameters)
      * overtemperature mode: interrupt
      * overtemperature fault queue: 4
      */
-    lm75_config_t config = {
+    lm75_config_t config =
+    {
         .mode       = LM75_MODE_SHUTDOWN,
         .os_pol     = LM75_OSP_HIGH,
         .os_mode    = LM75_OS_MODE_INT,
@@ -80,31 +81,38 @@ void lm75_task(void *pvParameters)
     ESP_ERROR_CHECK(lm75_set_os_threshold(&dev, os_temperature));
     ESP_LOGI(TAG, "Read Overtemperature Shutdown temperature");
     ESP_ERROR_CHECK(lm75_get_os_threshold(&dev, &os_temperature_in_reg));
-    if (os_temperature_in_reg != os_temperature) {
+    if (os_temperature_in_reg != os_temperature)
+    {
         ESP_LOGE(TAG, "invalid OS temperature found: %.3f", os_temperature_in_reg);
     }
 
     ESP_LOGI(TAG, "Set OS polarity to LM75_OSP_HIGH");
     ESP_ERROR_CHECK(lm75_set_os_polarity(&dev, LM75_OSP_HIGH));
     ESP_ERROR_CHECK(lm75_get_os_polarity(&dev, &v));
-    if (v != LM75_OSP_HIGH) {
+    if (v != LM75_OSP_HIGH)
+    {
         ESP_LOGE(TAG, "polarity is not LM75_OSP_HIGH");
     }
 
     ESP_LOGI(TAG, "Set OS polarity to LM75_OSP_LOW");
     ESP_ERROR_CHECK(lm75_set_os_polarity(&dev, LM75_OSP_LOW));
     ESP_ERROR_CHECK(lm75_get_os_polarity(&dev, &v));
-    if (v != LM75_OSP_LOW) {
+    if (v != LM75_OSP_LOW)
+    {
         ESP_LOGE(TAG, "polarity is not LM75_OSP_LOW");
     }
 
     ESP_LOGI(TAG, "Starting the loop");
-    while (1) {
+    while (1)
+    {
         shutdown ^= 1;
         vTaskDelay(pdMS_TO_TICKS(1000));
-        if (shutdown) {
+        if (shutdown)
+        {
             ESP_ERROR_CHECK(lm75_shutdown(&dev));
-        } else {
+        }
+        else
+        {
             ESP_ERROR_CHECK(lm75_wakeup(&dev));
         }
 
@@ -112,9 +120,11 @@ void lm75_task(void *pvParameters)
          * When in shutdown mode, the output should be same.
          */
         printf("Operation mode: %s\n", shutdown ? "shutdown" : "normal");
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 10; i++)
+        {
             vTaskDelay(pdMS_TO_TICKS(1000));
-            if (lm75_read_temperature(&dev, &temperature) != ESP_OK) {
+            if (lm75_read_temperature(&dev, &temperature) != ESP_OK)
+            {
                 ESP_LOGE(TAG, "failed to read_temperature()");
                 continue;
             }
