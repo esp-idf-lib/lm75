@@ -68,13 +68,6 @@ void lm75_task(void *pvParameters)
     ESP_LOGI(TAG, "Read default Overtemperature Shutdown temperature");
     ESP_ERROR_CHECK(lm75_get_os_threshold(&dev, &os_temperature_in_reg));
 
-    /* float is used in format string.
-     * for ESP8266, make sure sdkconfig has the following line:
-     *
-     * CONFIG_NEWLIB_LIBRARY_LEVEL_NORMAL=y
-     *
-     * this is enabled by default for this example.
-     */
     ESP_LOGI(TAG, "OS temperature: %f", os_temperature_in_reg);
 
     ESP_LOGI(TAG, "Set Overtemperature Shutdown temperature to %f", os_temperature);
